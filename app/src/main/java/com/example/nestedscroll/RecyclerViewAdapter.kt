@@ -6,7 +6,6 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -14,7 +13,7 @@ import kotlinx.android.synthetic.main.recycler_list_row.view.*
 
 class RecyclerViewAdapter(val clickListener: OnRecyclerItemClick) :RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
 
-    var locListData = mutableListOf<LocationData>()
+    var Data = mutableListOf<LocationData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewAdapter.MyViewHolder {
         val inflater = LayoutInflater.from(parent.context).inflate(R.layout.recycler_list_row, parent, false)
@@ -22,13 +21,13 @@ class RecyclerViewAdapter(val clickListener: OnRecyclerItemClick) :RecyclerView.
     }
 
     override fun getItemCount(): Int {
-        return locListData.size
+        return Data.size
     }
 
     override fun onBindViewHolder(holder:RecyclerViewAdapter.MyViewHolder, position: Int) {
-        holder.bind(locListData[position])
+        holder.bind(Data[position])
         holder.itemView.setOnClickListener {
-            clickListener.onItemClickListener(locListData[position])
+            clickListener.onItemClickListener(Data[position])
         }
     }
 
@@ -62,7 +61,7 @@ class RecyclerViewAdapter(val clickListener: OnRecyclerItemClick) :RecyclerView.
                     layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
                     val recyclerViewAdapter  = RecyclerViewAdapter(clickListener)
-                    recyclerViewAdapter.locListData = data.childLocations.toMutableList()
+                    recyclerViewAdapter.Data = data.childLocations.toMutableList()
                     adapter = recyclerViewAdapter
 
                 }

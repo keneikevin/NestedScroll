@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnRecyclerItemClic
     private fun loadData() {
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         viewModel.getListObervable().observe(this, Observer<MenuList> {
-            recyclerViewAdapter.locListData = it.data.toMutableList()
+            recyclerViewAdapter.Data = it.data.toMutableList()
             recyclerViewAdapter.notifyDataSetChanged()
         })
         viewModel.loadData(this@MainActivity)
