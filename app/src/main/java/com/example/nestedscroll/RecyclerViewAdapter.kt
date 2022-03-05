@@ -56,12 +56,11 @@ class RecyclerViewAdapter(val clickListener: OnRecyclerItemClick) :RecyclerView.
             Glide.with(imageview).load(data.url).into(imageview)
 
             if(data.childLocations != null && data.childLocations.size > 0) {
-                tvChildCount.visibility = VISIBLE
+
                 childRecyclerView.visibility =  VISIBLE
                 childRecyclerView.apply {
-                    layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                    val decoration  = DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL)
-                    addItemDecoration(decoration)
+                    layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
                     val recyclerViewAdapter  = RecyclerViewAdapter(clickListener)
                     recyclerViewAdapter.locListData = data.childLocations.toMutableList()
                     adapter = recyclerViewAdapter

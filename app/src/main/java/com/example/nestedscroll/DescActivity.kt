@@ -32,8 +32,9 @@ class DescActivity : AppCompatActivity() {
 
         Glide.with(imageview).load(data?.url).into(imageview)
         button.setOnClickListener {
-           //Todo add name and price to room database
-
+            intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
