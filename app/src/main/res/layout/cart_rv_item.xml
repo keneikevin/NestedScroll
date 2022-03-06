@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5.dp"
+    android:layout_margin="5dp"
+    app:cardElevation="4dp"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:layout_toLeftOf="@id/idIVDelete"
+        android:textSize="18sp"
+        android:padding="4dp"
+        android:layout_margin="4dp"
+        android:id="@+id/idTitle"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/idTvPrice"
+            android:layout_below="@+id/idTitle"
+            android:layout_margin="4dp"
+            android:layout_toLeftOf="@id/idIVDelete"
+            android:padding="4dp"
+            android:text="Price"
+            android:textColor="@color/black"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/idIVDelete"
+            android:src="@drawable/delete"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:padding="4.dp"
+            android:layout_margin="5dp"
+            app:tint="@color/black" />
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-package com.example.nestedscroll
+package com.example.nestedscroll.adapters
 
 
 import android.view.LayoutInflater
@@ -9,13 +9,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.nestedscroll.LocationData
+import com.example.nestedscroll.R
 import kotlinx.android.synthetic.main.recycler_list_row.view.*
 
-class RecyclerViewAdapter(val clickListener: OnRecyclerItemClick) :RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
+class NestedRecyClerView(val clickListener: OnRecyclerItemClick) :RecyclerView.Adapter<NestedRecyClerView.MyViewHolder>() {
 
     var Data = mutableListOf<LocationData>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewAdapter.MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val inflater = LayoutInflater.from(parent.context).inflate(R.layout.recycler_list_row, parent, false)
         return MyViewHolder(inflater, clickListener)
     }
@@ -24,7 +26,7 @@ class RecyclerViewAdapter(val clickListener: OnRecyclerItemClick) :RecyclerView.
         return Data.size
     }
 
-    override fun onBindViewHolder(holder:RecyclerViewAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(Data[position])
         holder.itemView.setOnClickListener {
             clickListener.onItemClickListener(Data[position])
@@ -60,7 +62,7 @@ class RecyclerViewAdapter(val clickListener: OnRecyclerItemClick) :RecyclerView.
                 childRecyclerView.apply {
                     layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-                    val recyclerViewAdapter  = RecyclerViewAdapter(clickListener)
+                    val recyclerViewAdapter  = NestedRecyClerView(clickListener)
                     recyclerViewAdapter.Data = data.childLocations.toMutableList()
                     adapter = recyclerViewAdapter
 

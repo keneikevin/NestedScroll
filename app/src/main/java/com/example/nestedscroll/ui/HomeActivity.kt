@@ -1,4 +1,4 @@
-package com.example.nestedscroll
+package com.example.nestedscroll.ui
 
 
 import android.content.Intent
@@ -8,11 +8,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.nestedscroll.LocationData
+import com.example.nestedscroll.MenuList
+import com.example.nestedscroll.R
+import com.example.nestedscroll.adapters.NestedRecyClerView
+import com.example.nestedscroll.viewmodel.MainActivityViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnRecyclerItemClick {
+class HomeActivity : AppCompatActivity(), NestedRecyClerView.OnRecyclerItemClick {
 
-    lateinit var recyclerViewAdapter: RecyclerViewAdapter
+    lateinit var nestedRecyClerView: NestedRecyClerView
     lateinit var viewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,11 +31,11 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnRecyclerItemClic
 
     private fun initRecyclerView(){
         recyclerView.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            layoutManager = LinearLayoutManager(this@HomeActivity)
             val decoration  = DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL)
             addItemDecoration(decoration)
-            recyclerViewAdapter = RecyclerViewAdapter(this@MainActivity)
-            adapter =recyclerViewAdapter
+            nestedRecyClerView = NestedRecyClerView(this@HomeActivity)
+            adapter =nestedRecyClerView
         }
     }
 
@@ -38,14 +43,14 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnRecyclerItemClic
     private fun loadData() {
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         viewModel.getListObervable().observe(this, Observer<MenuList> {
-            recyclerViewAdapter.Data = it.data.toMutableList()
-            recyclerViewAdapter.notifyDataSetChanged()
+            nestedRecyClerView.Data = it.data.toMutableList()
+            nestedRecyClerView.notifyDataSetChanged()
         })
-        viewModel.loadData(this@MainActivity)
+        viewModel.loadData(this@HomeActivity)
     }
 
     override fun onItemClickListener(data: LocationData) {
-        val intent = Intent(this@MainActivity, DescActivity::class.java)
+        val intent = Intent(this@HomeActivity, DetailsActivity::class.java)
         intent.putExtra("loc_data", data)
 
         startActivity(intent)

@@ -1,8 +1,10 @@
-package com.example.nestedscroll
+package com.example.nestedscroll.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.nestedscroll.MenuList
+import com.example.nestedscroll.R
 import com.google.gson.Gson
 
 class MainActivityViewModel: ViewModel() {

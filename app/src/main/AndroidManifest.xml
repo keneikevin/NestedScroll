@@ -10,9 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NestedScroll">
-        <activity android:name=".DescActivity"></activity>
+        <activity android:name=".ui.DetailsActivity"></activity>
+        <activity android:name=".ui.ShoppingActivity"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
