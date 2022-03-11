@@ -58,7 +58,7 @@ class ShoppingAdapter :RecyclerView.Adapter<ShoppingAdapter.ShoppingViewHolder>(
                .load(shoppingItem.img).into(image)
         tvName.text = shoppingItem.title
 
-           val priceText = "${shoppingItem.price}"
+           val priceText = "${shoppingItem.price}Ksh"
         tvPrice.text = priceText
        }
     }

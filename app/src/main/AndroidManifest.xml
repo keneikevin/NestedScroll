@@ -11,9 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NestedScroll">
         <activity android:name=".ui.DetailsActivity"></activity>
+        <activity android:name=".ui.HomeActivity"></activity>
         <activity android:name=".ui.ShoppingActivity"></activity>
         <activity
-            android:name=".ui.HomeActivity"
+            android:name=".ui.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

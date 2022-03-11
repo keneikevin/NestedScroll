@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_shopping_graph"
+    app:startDestination="@id/inrtoFragment2">
+    <fragment
+        android:id="@+id/inrtoFragment2"
+        android:name="com.kevin.cakeCity.ui.main.fragments.InrtoFragment"
+        android:label="InrtoFragment" >
+        <action
+            android:id="@+id/action_inrtoFragment2_to_descFragment2"
+            app:destination="@id/descFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/descFragment2"
+        android:name="com.kevin.cakeCity.ui.main.fragments.DescFragment"
+        android:label="DescFragment" />
+</navigation>

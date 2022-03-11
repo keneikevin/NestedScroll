@@ -5,15 +5,11 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/shoppingFragment2">
     <fragment
-        android:id="@+id/testFragment2"
-        android:name="com.kevin.cakeCity.ui.main.fragments.TestFragment"
-        android:label="TestFragment" >
-        <action
-            android:id="@+id/action_testFragment2_to_shoppingFragment2"
-            app:destination="@id/shoppingFragment2" />
-    </fragment>
-    <fragment
         android:id="@+id/shoppingFragment2"
         android:name="com.kevin.cakeCity.ui.main.fragments.ShoppingFragment"
-        android:label="ShoppingFragment" />
+        android:label="ShoppingFragment"/>
+    <fragment
+        android:id="@+id/descFragment3"
+        android:name="com.kevin.cakeCity.ui.main.fragments.DescFragment"
+        android:label="DescFragment" />
 </navigation>

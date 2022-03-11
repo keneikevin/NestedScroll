@@ -47,9 +47,9 @@ class NestedRecyClerView(val clickListener: OnRecyclerItemClick) :RecyclerView.A
             data.subtitle?.let {
                 address += it+", "
             }
-
+            
             data.price?.let {
-                address += it
+                address += it+"Ksh"
             }
             textViewAddress.text = address
 

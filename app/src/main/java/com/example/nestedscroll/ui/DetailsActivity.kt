@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -18,7 +19,7 @@ class DetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDescBinding
     lateinit var title: EditText
     lateinit var price: EditText
-    lateinit var addUpdateButton: Button
+    lateinit var addUpdateButton: ImageView
     lateinit var viewModel: CartViewModel
     var itemId = -1
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +42,7 @@ class DetailsActivity : AppCompatActivity() {
         data?.subtitle?.let {
             address += it +", "
         }
-
+        
         data?.price?.let {
             address += it
         }
@@ -50,13 +51,16 @@ class DetailsActivity : AppCompatActivity() {
 
         Glide.with(imageview).load(data?.url).into(binding.imageview)
         binding.button.setOnClickListener {
-            val title = binding.textViewName.text.toString()
-            val price = binding.textViewAddress.text.toString()
+
+
             if (data != null) {
-                viewModel.addItem(Item(
-                    title,price,data.url.toString()
-                )
-                )
+                viewModel.addItem(
+                    Item(
+                        binding.textViewName.text.toString(),
+                        binding.textViewAddress.text.toString().toInt(),
+                        data.url.toString()
+                ))
+
             }
 
             val intent = Intent(this, ShoppingActivity::class.java)

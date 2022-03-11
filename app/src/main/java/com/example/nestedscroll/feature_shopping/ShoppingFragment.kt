@@ -67,7 +67,11 @@ class ShoppingFragment :Fragment(R.layout.fragment_shopping) {
 
     private fun subscribeToObservers() {
 
-
+        viewModel.totalPrice.observe(viewLifecycleOwner, Observer {
+            val price = it ?: 0f
+            val priceText = "$price ksh"
+            binding.tvCakePrice.text = priceText
+        })
 
         viewModel.allItems.observe(viewLifecycleOwner, Observer {
             shoppingAdapter.shoppingItems = it

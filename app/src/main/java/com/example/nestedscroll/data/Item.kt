@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "itemTable")
 data class Item(
     @ColumnInfo(name = "title")val title:String,
-    @ColumnInfo(name = "price")val price:String,
+    @ColumnInfo(name = "price")val price:Int,
     @ColumnInfo(name = "img")val img:String
 
     ){

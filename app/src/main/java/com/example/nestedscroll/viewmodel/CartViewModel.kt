@@ -20,7 +20,7 @@ class CartViewModel(application: Application):AndroidViewModel(application) {
         allItems = repository.allItems
 
     }
-
+    val totalPrice = repository.observeTotalPrice()
     fun deleteItem(item:Item) = viewModelScope.launch(Dispatchers.IO){
         repository.delete(item)
     }
