@@ -8,8 +8,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.nestedscroll.R
 import com.example.nestedscroll.databinding.ActivityAuthBinding
-import com.example.nestedscroll.databinding.ActivityCartyBinding
-
 class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthBinding
     override fun onCreate(savedInstanceState: Bundle?) {

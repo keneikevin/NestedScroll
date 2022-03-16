@@ -16,4 +16,8 @@ class ItemRepository(private val itemsDao: ItemsDao){
         return itemsDao.observeTotalPrice()
     }
 
+     suspend fun insertShoppingItem(shoppingItem: Item) {
+        itemsDao.insertShoppingItem(shoppingItem)
+    }
+
 }

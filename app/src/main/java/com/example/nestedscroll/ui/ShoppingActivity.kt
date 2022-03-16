@@ -9,7 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.nestedscroll.R
-import com.example.nestedscroll.databinding.ActivityCartyBinding
+
 import com.example.nestedscroll.databinding.ActivityShoppingBinding
 
 class ShoppingActivity : AppCompatActivity() {
@@ -25,7 +25,11 @@ class ShoppingActivity : AppCompatActivity() {
         binding.bottomNavigationView.setupWithNavController(navHostFragment.findNavController())
         navHostFragment.findNavController()
             .addOnDestinationChangedListener { _, destination, _ ->
-                binding.bottomNavigationView.visibility = View.VISIBLE
+                when (destination.id) {
+                    R.id.homeFragment, R.id.shoppingFragment2 ->
+                        binding.bottomNavigationView.visibility = View.VISIBLE
+                    else -> binding.bottomNavigationView.visibility = View.GONE
+                }
             }
     }
 }

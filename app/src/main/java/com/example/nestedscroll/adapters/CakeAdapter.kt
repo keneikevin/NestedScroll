@@ -9,25 +9,25 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
-import com.example.nestedscroll.data.Cake
+import com.example.nestedscroll.data.Menu
+import com.example.nestedscroll.feature_shopping.HomeFragmentDirections
 
 
-class CakeAdapter:  PagingDataAdapter<Cake, CakeAdapter.CakeViewHolder>(Companion) {
-    class CakeViewHolder(val binding: CardBinding, var cake: Cake? = null) : RecyclerView.ViewHolder(
+class CakeAdapter:  PagingDataAdapter<Menu, CakeAdapter.CakeViewHolder>(Companion) {
+    class CakeViewHolder(val binding: CardBinding, var cake: Menu? = null) : RecyclerView.ViewHolder(
         binding.root){
         val tvTitle= binding.textName
         val tvPrice= binding.textPrice
         val ivCake = binding.img
     }
-    companion object : DiffUtil.ItemCallback<Cake>() {
-        override fun areItemsTheSame(oldItem: Cake, newItem: Cake): Boolean {
-            return oldItem.mediaId == newItem.mediaId
+    companion object : DiffUtil.ItemCallback<Menu>() {
+        override fun areItemsTheSame(oldItem: Menu, newItem: Menu): Boolean {
+            return oldItem.price == newItem.price
         }
 
-        override fun areContentsTheSame(oldItem: Cake, newItem: Cake): Boolean {
+        override fun areContentsTheSame(oldItem: Menu, newItem: Menu): Boolean {
             return oldItem == newItem
         }
     }
@@ -40,18 +40,19 @@ class CakeAdapter:  PagingDataAdapter<Cake, CakeAdapter.CakeViewHolder>(Companio
         holder.apply {
             Glide.with(itemView).setDefaultRequestOptions(RequestOptions()
                 .placeholder(R.drawable.ic_image)
+                .dontAnimate()
                 .error(R.drawable.ic_broken_image)
                 .diskCacheStrategy(DiskCacheStrategy.DATA))
-                .load(cake.img).into(ivCake)
+                .load(cake.image).into(ivCake)
 
             itemView.setOnClickListener {
-             //   val directions= HomeFragmentDirections.actionHomeFragmentToDetailFragment(cake)
-             //   it.findNavController().navigate(directions)
+                val directions=HomeFragmentDirections.actionHomeFragmentToDetailFragment(cake)
+                it.findNavController().navigate(directions)
             }
 
-            tvTitle.text = cake.title
-            val sizePice = "Ksh: ${cake.price} "
-            tvPrice.text = sizePice
+            tvTitle.text = cake.Name
+
+            tvPrice.text = cake.price.toString()
 
 
         }

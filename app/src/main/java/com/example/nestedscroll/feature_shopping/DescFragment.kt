@@ -9,7 +9,7 @@ import android.widget.SpinnerAdapter
 import androidx.fragment.app.Fragment
 import com.example.nestedscroll.R
 import com.example.nestedscroll.databinding.FragmentDescBinding
-import com.example.nestedscroll.ui.HomeActivity
+import com.example.nestedscroll.ui.ShoppingActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_desc.*
 
@@ -44,7 +44,7 @@ class DescFragment :Fragment(R.layout.fragment_desc) {
 
         }
         binding.button2.setOnClickListener {
-            val intent = Intent(activity, HomeActivity::class.java)
+            val intent = Intent(activity, ShoppingActivity::class.java)
             startActivity(intent)
         }
     }

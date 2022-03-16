@@ -8,6 +8,9 @@ interface ItemsDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(item: Item)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertShoppingItem(shoppingItemDatabase: Item)
+
     @Delete
     suspend fun delete(item: Item)
 
@@ -16,4 +19,6 @@ interface ItemsDao {
 
     @Query("SELECT SUM(price)FROM itemTable")
     fun observeTotalPrice(): LiveData<Float>
+
+
 }

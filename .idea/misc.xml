@@ -14,17 +14,21 @@
         <entry key="app/src/main/res/layout/activity_cart.xml" value="0.196875" />
         <entry key="app/src/main/res/layout/activity_carty.xml" value="0.15416666666666667" />
         <entry key="app/src/main/res/layout/activity_desc.xml" value="0.26510416666666664" />
+        <entry key="app/src/main/res/layout/activity_firestore.xml" value="0.2234375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_shopping.xml" value="0.10729166666666666" />
-        <entry key="app/src/main/res/layout/card.xml" value="0.15416666666666667" />
+        <entry key="app/src/main/res/layout/card.xml" value="0.1" />
         <entry key="app/src/main/res/layout/cart_rv_item.xml" value="0.30179028132992325" />
         <entry key="app/src/main/res/layout/curve_toolbar_bg.xml" value="0.2390625" />
         <entry key="app/src/main/res/layout/fragment_desc.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2390625" />
+        <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.20625" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_intro.xml" value="0.19375" />
-        <entry key="app/src/main/res/layout/fragment_shopping.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_order.xml" value="0.2390625" />
+        <entry key="app/src/main/res/layout/fragment_shopping.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_test.xml" value="0.15416666666666667" />
         <entry key="app/src/main/res/layout/item_shopping.xml" value="0.3527054108216433" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.2234375" />
         <entry key="app/src/main/res/layout/recycler_list_row.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/user_item.xml" value="0.22708333333333333" />
         <entry key="app/src/main/res/menu/botton_menu.xml" value="0.1" />

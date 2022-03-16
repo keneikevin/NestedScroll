@@ -4,6 +4,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 
@@ -30,13 +31,16 @@ class ShoppingFragment :Fragment(R.layout.fragment_shopping) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity()).get(CartViewModel::class.java)
         binding = FragmentShoppingBinding.bind(view)
+        binding.button3.setOnClickListener{
+            findNavController().navigate(ShoppingFragmentDirections.actionShoppingFragment2ToOrderFragment())
+        }
         subscribeToObservers()
         setupRecyclerView()
 
         Snackbar.make(
             binding.root,
              "SWIPE TO DELETE",
-            Snackbar.LENGTH_LONG
+            Snackbar.LENGTH_SHORT
         ).show()
 
     }

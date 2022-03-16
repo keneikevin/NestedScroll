@@ -22,7 +22,6 @@
         android:id="@+id/ivCake"
         android:layout_width="100dp"
         android:background="@drawable/business"
-
        android:layout_height="100dp"
         android:scaleType="centerCrop"
         android:src="@drawable/delete"
@@ -35,6 +34,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="NAME"
+        android:paddingStart="25dp"
+        android:textStyle="bold"
         android:textSize="24sp"
         card_view:layout_constraintStart_toEndOf="@+id/ivCake"
         card_view:layout_constraintTop_toTopOf="@+id/ivCake" />
@@ -45,6 +46,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="Price: 3€"
+        android:paddingStart="25dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
         android:textSize="20sp"
         card_view:layout_constraintBottom_toBottomOf="@+id/ivCake"
         card_view:layout_constraintStart_toEndOf="@+id/ivCake" />
