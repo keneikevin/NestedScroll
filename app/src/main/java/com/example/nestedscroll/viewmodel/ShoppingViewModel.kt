@@ -4,7 +4,6 @@ import androidx.lifecycle.*
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
-import com.example.nestedscroll.data.Cake
 import com.example.nestedscroll.data.Item
 import com.example.nestedscroll.data.ItemDataBase
 import com.example.nestedscroll.data.ItemRepository
@@ -58,8 +57,6 @@ class ShoppingViewModel(application: Application) : AndroidViewModel(application
 
     private val _insertShoppingItemStatus = MutableLiveData<Event<Resource<Item>>>()
     val insertShoppingItemStatus: LiveData<Event<Resource<Item>>> = _insertShoppingItemStatus
-
-    val runs = MediatorLiveData<List<Cake>>()
 
 
     val flow = Pager(PagingConfig(PAGE_SIZE)){
