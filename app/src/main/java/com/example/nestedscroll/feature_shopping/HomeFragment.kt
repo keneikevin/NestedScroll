@@ -3,7 +3,9 @@ package com.example.nestedscroll.feature_shopping
 
 
 import android.os.Bundle
+import android.view.SearchEvent
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -29,6 +31,7 @@ class HomeFragment :Fragment(R.layout.fragment_home){
         viewModel = ViewModelProvider(requireActivity()).get(ShoppingViewModel::class.java)
         binding = FragmentHomeBinding.bind(view)
         setUpRecyclerView()
+
     }
 
     private fun setUpRecyclerView()= binding.rvCakes.apply{
@@ -37,12 +40,23 @@ class HomeFragment :Fragment(R.layout.fragment_home){
         binding.rvCakes.layoutManager = GridLayoutManager(requireContext(), 2)
         itemAnimator = null
 
+        binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                cakeAdapter.filter.filter(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                cakeAdapter.filter.filter(newText)
+                return false
+            }
+
+        })
         lifecycleScope.launch {
             viewModel.flow.collect {
                 cakeAdapter.submitData(it)
             }
         }
-
 
         lifecycleScope.launch {
             cakeAdapter.loadStateFlow.collectLatest {

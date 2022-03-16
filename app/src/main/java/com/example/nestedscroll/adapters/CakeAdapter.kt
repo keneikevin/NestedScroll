@@ -4,6 +4,8 @@ import com.example.nestedscroll.R
 import com.example.nestedscroll.databinding.CardBinding
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -15,7 +17,12 @@ import com.example.nestedscroll.data.Menu
 import com.example.nestedscroll.feature_shopping.HomeFragmentDirections
 
 
-class CakeAdapter:  PagingDataAdapter<Menu, CakeAdapter.CakeViewHolder>(Companion) {
+class CakeAdapter:  PagingDataAdapter<Menu, CakeAdapter.CakeViewHolder>(Companion),Filterable {
+
+
+    var photosList: ArrayList<Menu> = ArrayList()
+    var photosListFiltered: ArrayList<Menu> = ArrayList()
+
     class CakeViewHolder(val binding: CardBinding, var cake: Menu? = null) : RecyclerView.ViewHolder(
         binding.root){
         val tvTitle= binding.textName
@@ -59,6 +66,7 @@ class CakeAdapter:  PagingDataAdapter<Menu, CakeAdapter.CakeViewHolder>(Companio
 
     }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CakeViewHolder {
         return CakeViewHolder(
             CardBinding.inflate(
@@ -67,6 +75,42 @@ class CakeAdapter:  PagingDataAdapter<Menu, CakeAdapter.CakeViewHolder>(Companio
                 false
             )
         )
+    }
+    fun addData(list: List<Menu>) {
+        photosList = list as ArrayList<Menu>
+        photosListFiltered = photosList
+        notifyDataSetChanged()
+    }
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charString = constraint?.toString() ?: ""
+                if (charString.isEmpty()) photosListFiltered = photosList else {
+                    val filteredList = ArrayList<Menu>()
+                    photosList
+                        .filter {
+                            (it.price.toString().contains(constraint!!)) or
+                                    (it.Name?.contains(constraint) == true)
+
+                        }
+                        .forEach { filteredList.add(it) }
+                    photosListFiltered = filteredList
+
+                }
+                return FilterResults().apply { values = photosListFiltered }
+            }
+
+            @Suppress("UNCHECKED_CAST")
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+
+                photosListFiltered = if (results?.values == null)
+                    ArrayList()
+                else
+                    results.values as ArrayList<Menu>
+                notifyDataSetChanged()
+            }
+
+        }
     }
 }
 
