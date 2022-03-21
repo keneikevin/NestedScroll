@@ -1,4 +1,5 @@
 package com.kevin.cakeCity.ui.main.fragments
+
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -18,8 +19,7 @@ import com.example.nestedscroll.databinding.FragmentShoppingBinding
 import com.google.android.material.snackbar.Snackbar
 import com.kevin.cakeCity.adapters.ShoppingAdapter
 
-class ShoppingFragment :Fragment(R.layout.fragment_shopping) {
-
+class ShoppingFragment : Fragment(R.layout.fragment_shopping) {
 
 
     private lateinit var binding: FragmentShoppingBinding
@@ -31,28 +31,33 @@ class ShoppingFragment :Fragment(R.layout.fragment_shopping) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity()).get(CartViewModel::class.java)
         binding = FragmentShoppingBinding.bind(view)
-        binding.button3.setOnClickListener{
-            findNavController().navigate(ShoppingFragmentDirections.actionShoppingFragment2ToOrderFragment())
+        with(binding) {
+            checkout.setOnClickListener {
+                findNavController().navigate(ShoppingFragmentDirections.actionShoppingFragment2ToOrderFragment())
+            }
+            back.setOnClickListener {
+                findNavController().popBackStack()
+            }
         }
+
         subscribeToObservers()
         setupRecyclerView()
 
         Snackbar.make(
             binding.root,
-             "SWIPE TO DELETE",
+            "Swipe to delete",
             Snackbar.LENGTH_SHORT
         ).show()
 
     }
 
-
     private val itemTouchCallback = object : ItemTouchHelper.SimpleCallback(
-            0, LEFT or RIGHT
+        0, LEFT or RIGHT
     ) {
         override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
         ) = true
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
@@ -82,6 +87,7 @@ class ShoppingFragment :Fragment(R.layout.fragment_shopping) {
         })
 
     }
+
     private fun setupRecyclerView() {
         binding.rvShoppingItems.apply {
             shoppingAdapter = ShoppingAdapter()
