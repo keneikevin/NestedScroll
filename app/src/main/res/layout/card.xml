@@ -2,7 +2,6 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:foreground="?android:attr/selectableItemBackground"
@@ -10,20 +9,18 @@
     android:focusable="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    card_view:cardUseCompatPadding="true"
-    card_view:cardElevation="5dp"
-    card_view:contentPadding="10dp">
+    card_view:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/img"
-            android:layout_width="120dp"
+            android:layout_width="match_parent"
             android:layout_height="120dp"
+            android:scaleType="fitXY"
             android:src="@drawable/business"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
@@ -31,29 +28,28 @@
 
         <TextView
             android:id="@+id/textName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/img"
+            android:layout_margin="12dp"
             android:layout_toRightOf="@+id/img"
             android:text="Title"
+            android:textColor="@color/colorAccent"
             android:textSize="18sp"
-            android:textStyle="bold"
-            card_view:layout_constraintEnd_toEndOf="@+id/img"
-            card_view:layout_constraintStart_toStartOf="@+id/img"
+            card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/img" />
 
         <TextView
             android:id="@+id/textPrice"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/img"
-            android:layout_marginTop="24dp"
             android:layout_toRightOf="@+id/img"
             android:textSize="18sp"
-
-            card_view:layout_constraintEnd_toEndOf="@+id/img"
-            card_view:layout_constraintStart_toStartOf="@+id/img"
-            card_view:layout_constraintTop_toBottomOf="@+id/img"
+            android:layout_marginBottom="8dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="@+id/textName"
+            card_view:layout_constraintTop_toBottomOf="@+id/textName"
             tools:text="1800" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

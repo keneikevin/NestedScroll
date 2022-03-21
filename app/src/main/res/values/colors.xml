@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="gray">@android:color/darker_gray</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green">#00E676</color>
+    <color name="green">#6E37BE</color>
 
     <color name="md_blue_300">#64B5F6</color>
     <color name="md_blue_400">#42A5F5</color>
@@ -20,5 +20,5 @@
     <color name="md_blue_A200">#448AFF</color>
     <color name="md_blue_A400">#2979FF</color>
     <color name="md_blue_A700">#2962FF</color>
-    <color name="colorAccent">#FFE600</color>
+    <color name="colorAccent">#6E37BE</color>
 </resources>
