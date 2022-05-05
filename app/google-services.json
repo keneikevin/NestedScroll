@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "589934235359",
+    "firebase_url": "https://nestedscroll-b3317-default-rtdb.firebaseio.com",
+    "project_id": "nestedscroll-b3317",
+    "storage_bucket": "nestedscroll-b3317.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589934235359:android:06d65380595f8b0e22636a",
+        "android_client_info": {
+          "package_name": "com.example.nestedscroll"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "589934235359-bj3alp9opvkeg5hpve8me8855i5r9c5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-hcghDXaOfKjKR0_L2WT_2DAiq9i-sRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "589934235359-bj3alp9opvkeg5hpve8me8855i5r9c5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
